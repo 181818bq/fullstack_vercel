@@ -13,6 +13,9 @@ type Article = {
   content: string[];
 };
 
+// Get the API URL from environment variables
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function ArticlePage() {
   const { name } = useParams();
   const { upvotes: initialUpvotes, comments: initialComments } = useLoaderData() as { upvotes: number; comments: any[] };
@@ -31,7 +34,7 @@ export default function ArticlePage() {
 async function onUpvoteClicked() {
   const token = user && await user.getIdToken();
   const headers = token ? { authtoken: token } : {};
-  const response = await axios.post('/api/articles/' + name + '/upvote', null, { headers });
+  const response = await axios.post(`${API_URL}/api/articles/${name}/upvote`, null, { headers });
   const updatedArticleData = response.data;
   setUpvotes(updatedArticleData.upvotes);
 }
@@ -39,7 +42,7 @@ async function onUpvoteClicked() {
 async function onAddComment({ postedBy, text }: { postedBy: string; text: string }) {
   const token = user && await user.getIdToken();
   const headers = token ? { authtoken: token } : {};
-  const response = await axios.post('/api/articles/' + name + '/comments', {
+  const response = await axios.post(`${API_URL}/api/articles/${name}/comments`, {
     postedBy,
     text
   }, { headers });
@@ -63,7 +66,7 @@ return (
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const response = await axios.get('/api/articles/' + params.name);
+  const response = await axios.get(`${API_URL}/api/articles/${params.name}`);
   const { upvotes, comments } = response.data;
   return { upvotes, comments };
 }
