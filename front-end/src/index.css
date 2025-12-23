@@ -34,6 +34,12 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin-top: 1.5em;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -45,14 +51,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Light mode styles */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,8 +73,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  
+  /* Fix dark text in light mode for article links */
+  a h3 {
+    color: #213547;
+  }
+  
+  a p {
+    color: #666;
+  }
 }
 
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  /* Fix light text in dark mode for article links */
+  a h3 {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  
+  a p {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Navigation styles */
 nav {
   background-color: #333;
   padding: 10px;
@@ -96,16 +127,117 @@ nav a:hover {
   background-color: #555;
 }
 
+/* Article list styles */
 a h3 {
-  color: #333;
   margin-bottom: 0.5em;
 }
 
 a p {
-  color: #666;
   font-size: 0.9em;
+  margin-top: 0.25em;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Login page styles */
+.login-page {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.form-group input {
+  padding: 0.75em;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+@media (prefers-color-scheme: light) {
+  .form-group input {
+    background-color: #ffffff;
+    color: #213547;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group input:focus {
+    border-color: #646cff;
+  }
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0.5em;
+  background-color: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.95em;
+}
+
+/* Page-specific styles */
+.home-page,
+.about-page,
+.articles-page {
+  max-width: 100%;
+}
+
+.home-page p,
+.about-page p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 1em 0;
+}
+
+.about-page ul {
+  line-height: 1.8;
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.about-page li {
+  margin: 0.5em 0;
+}
+
+.articles-intro {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95em;
+  margin-bottom: 2em;
+}
+
+@media (prefers-color-scheme: light) {
+  .articles-intro {
+    color: #666;
+  }
 }
