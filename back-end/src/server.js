@@ -49,11 +49,12 @@ async function connectToDatabase() {
   database = client.db('full-stack-react-db');
 };
 
+/* moving away from local hosting
 app.use(express.static(path.join(__dirname, '../dist')));
-
 app.get(/^(?!\/api).+/, (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+ */
 
 app.get('/api/articles/:name', async (req, res) => {
   const { name } = req.params;
