@@ -8,9 +8,16 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const credentials = JSON.parse(
+/* moving away from local credentials.json
+  const credentials = JSON.parse(
   fs.readFileSync('./credentials.json')
 );
+ */
+
+// getting credentials from Vercel/Render environment variables
+const credentials = process.env.FIREBASE_CREDENTIALS 
+  ? JSON.parse(process.env.FIREBASE_CREDENTIALS)
+  : JSON.parse(fs.readFileSync('./credentials.json'));
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials)
