@@ -63,7 +63,8 @@ app.get('/api/articles/:name', async (req, res) => {
   res.status(200).json(article);
 });
 
-app.use(async function(req, res, next) {
+// Auth middleware — only for protected routes below
+const authenticateUser = async (req, res, next) => {
   const { authtoken } = req.headers;
 
   if (authtoken) {
@@ -73,9 +74,10 @@ app.use(async function(req, res, next) {
   } else {
     res.status(403).send('Unauthorized');
   }
-});
+};
 
-app.post('/api/articles/:name/upvote', async (req, res) => {
+// Protected route
+app.post('/api/articles/:name/upvote', authenticateUser, async (req, res) => {
   const { name } = req.params;
   const { uid } = req.user;
 
@@ -98,7 +100,8 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
   }
 });
 
-app.post('/api/articles/:name/comments', async (req, res) => {
+// Protected route
+app.post('/api/articles/:name/comments', authenticateUser, async (req, res) => {
     const { name } = req.params;
     const { postedBy, text } = req.body;
     const newComment = { postedBy, text };
