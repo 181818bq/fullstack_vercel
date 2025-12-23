@@ -3,10 +3,23 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import admin from 'firebase-admin';
 import fs from 'fs';
 import path from 'path';
-
+import cors from 'cors';
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const app = express();
+
+app.use(express.json());
+
+// allow only the front-end origin (set FRONTEND_URL on Render)
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
+
+// simple health / root endpoint (returns 200 instead of 404)
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'API is running' });
+});
 
 /* moving away from local credentials.json
   const credentials = JSON.parse(
@@ -15,17 +28,18 @@ const __dirname = path.dirname(__filename);
  */
 
 // getting credentials from Vercel/Render environment variables
-const credentials = process.env.FIREBASE_CREDENTIALS 
-  ? JSON.parse(process.env.FIREBASE_CREDENTIALS)
-  : JSON.parse(fs.readFileSync('./credentials.json'));
+const getFirebaseCredentials = () => {
+  if (process.env.FIREBASE_CREDENTIALS) {
+    try { return JSON.parse(process.env.FIREBASE_CREDENTIALS); }
+    catch (e) { console.error('Invalid FIREBASE_CREDENTIALS JSON'); process.exit(1); }
+  }
+  // local dev fallback
+  try { return JSON.parse(fs.readFileSync(path.resolve(__dirname, '../credentials.json'), 'utf8')); }
+  catch (e) { console.error('No Firebase credentials found'); process.exit(1); }
+};
 
-admin.initializeApp({
-  credential: admin.credential.cert(credentials)
-});
-
-const app = express();
-
-app.use(express.json());
+const credentials = getFirebaseCredentials();
+admin.initializeApp({ credential: admin.credential.cert(credentials) });
 
 let database;
 
