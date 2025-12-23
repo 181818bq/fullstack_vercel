@@ -1,20 +1,23 @@
-# fullstack — React + Express + MongoDB + Firebase
+# Full stack blog application
 
 Small full-stack example app with:
 - Front-end: Vite + React + react-router
-- Back-end: Express (ESM) + MongoDB
-- Firebase Admin for auth verification
+- Back-end: Node + Express (ESM) + Axios + Cors
+- Persistent storage: MongoDB Atlas
+- Authentication: Firebase
 
 Repository layout
 - front-end/ — React app (Vite)
 - back-end/ — Express server (serves API and built front-end from `back-end/dist`)
 - back-end/src/server.js — main server file
-- back-end/src/credentials.json — Firebase service account (required)
+- back-end/src/credentials.json — Firebase service account (local testing)
 
 Prerequisites
 - Node.js (v18+ recommended) — includes npm. Install from https://nodejs.org/
 - MongoDB (local `mongod` for development) or MongoDB Atlas
 - Firebase service account JSON saved as `back-end/src/credentials.json`
+- Vercel for prod front end hosting
+- Render for prod back end hosting
 
 Quick start — development
 
@@ -68,7 +71,7 @@ Environment / configuration
   Server will use the Atlas connection string when those vars are present.
 
 - Firebase credentials:
-  - Provide Firebase service account JSON at `back-end/src/credentials.json` (server reads it synchronously).
+  - Local Firebase service account JSON at `back-end/src/credentials.json` (server reads it synchronously).
   - The server middleware expects an `authtoken` header for protected routes.
 
 Common issues & troubleshooting
@@ -97,9 +100,6 @@ so each comment becomes `{ postedBy, text }`.
 
 Type fixes (React Router loaders)
 - Loader argument should be typed using LoaderFunctionArgs (from `react-router-dom`) and validate `params.name` may be undefined before using.
-
-If you need help
-- If you hit errors, include the exact terminal/browser console output and the file that raises the error. I can suggest precise fixes.
 
 License
 - MIT (or choose appropriate license)
